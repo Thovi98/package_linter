@@ -495,19 +495,25 @@ class Manifest(TestSuite):
             if "php7.4-" in packages:
                 yield ReportError(
                     "The app currently runs on php7.4 which is pretty old (unsupported by the "
-                    "PHP group since January 2023). Ideally, upgrade it to at least php8.2."
+                    "PHP group since January 2023). Ideally, upgrade it to at least php8.4."
                 )
             elif "php8.0-" in packages:
-                yield ReportWarning(
+                yield ReportError(
                     "The app currently runs on php8.0 which is pretty old (unsupported by the "
-                    "PHP group since January 2024). Ideally, upgrade it to at least php8.2."
+                    "PHP group since November 2024). Ideally, upgrade it to at least php8.4."
                 )
             elif "php8.1-" in packages:
-                yield ReportWarning(
-                    "The app currently runs on php8.1 which is deprecated since January 2024. "
-                    "Ideally, upgrade it to at least php8.2."
+                yield ReportError(
+                    "The app currently runs on php8.1 which is pretty old (unsupported by the "
+                    "PHP group since January 2026). Ideally, upgrade it to at least php8.4."
                 )
-    
+            
+            elif "php8.2-" in packages:
+                yield ReportWarning(
+                    "The app currently runs on php8.2 which is deprecated since January 2025. "
+                    "Ideally, upgrade it to at least php8.4."
+                )
+
     @test()
     def old_resources_version(self) -> TestResult:
 
