@@ -507,7 +507,7 @@ class Manifest(TestSuite):
                     "The app currently runs on php8.1 which is pretty old (unsupported by the "
                     "PHP group since January 2026). Ideally, upgrade it to at least php8.4."
                 )
-            
+
             elif "php8.2-" in packages:
                 yield ReportWarning(
                     "The app currently runs on php8.2 which is deprecated since January 2025. "
@@ -541,7 +541,7 @@ class Manifest(TestSuite):
                     "The app currently runs with an old Ruby version and is unsupported by the "
                     "Ruby team). Ideally , upgrade it to at least version 3.3."
                 )
-    
+
         if "go" in list(resources):
             go_version = resources["go"]["version"]
             if go_version < "1.26":
